@@ -1,0 +1,49 @@
+.tasks-list {
+    margin-top: 5px;
+    display: flex;
+    justify-content: start;
+    padding: 5px;
+    background-color: #383838;
+    border-radius: 5px;
+    color: white;
+}
+
+.completed {
+    background-color: #252525;
+    color: #7e7e7e;
+    text-decoration-line: line-through;
+}
+
+.checkbox {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    position: relative;
+    margin: 5px 10px;
+    padding: 0px;
+    background-color: #383838;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+}
+
+.task-title {
+    width: 85%
+}
+
+.task-title:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete {
+    position: absolute;
+    right: 26%;
+}
+
+.delete:hover {
+    cursor: pointer;
+    color: rgb(229, 64, 64);
+}

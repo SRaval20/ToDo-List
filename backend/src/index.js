@@ -9,6 +9,6 @@ const app = express();
 app.use(cors());
 app.use(json());
 
-app.use('/tasks', taskRoutes);
+app.use('/api/tasks', taskRoutes);
 
 app.listen(4000, () => console.log('Server running on http://localhost:4000'));

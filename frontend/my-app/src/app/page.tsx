@@ -1,34 +1,56 @@
+// frontend/my-app/src/app/page.tsx
+
 'use client';
 
+import "../styles/app.css";
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import React, { useEffect, useState } from 'react';
 import { fetchTasks, updateTask, deleteTask } from '../utils/api';
+import Header from '../components/Header';
 import TaskCard from '../components/TaskCard';
 import { useRouter } from 'next/navigation';
 
 const Home = () => {
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState<any[]>([]);
     const router = useRouter();
 
     useEffect(() => {
-        fetchTasks().then((res) => setTasks(res.data));
+        fetchTasks().then((res) => {
+            if (Array.isArray(res)) {
+                setTasks(res); // Make sure tasks is an array
+            } else {
+                setTasks([]); // Fallback to an empty array if the response is not an array
+            }
+        });
     }, []);
 
     const handleToggle = (id: number) => {
         const task = tasks.find((t: any) => t.id === id) ?? { completed: false, title: '', color: '' };
-        updateTask(id, { 
-            title: task.title, 
-            color: task.color, 
-            completed: !task.completed 
+        updateTask(id, {
+            title: task.title,
+            color: task.color,
+            completed: !task.completed
         }).then(() => {
-            fetchTasks().then((res) => setTasks(res.data));
-        });
-    };  
+            setTasks((prevTasks: any[]) =>
+                prevTasks.map((t) =>
+                    t.id === id ? { ...t, completed: !t.completed } : t
+                )
+            );
+        })
+            .catch((err) => {
+                console.error('Error updating task:', err);
+            });
+    };
 
     const handleDelete = (id: number) => {
         const confirmDelete = window.confirm('Are you sure you want to delete this task?');
         if (confirmDelete) {
             deleteTask(id).then(() => {
-                fetchTasks().then((res) => setTasks(res.data));
+                fetchTasks().then((res) => {
+                    if (Array.isArray(res)) {
+                        setTasks(res);
+                    }
+                });
             });
         }
     };
@@ -41,20 +63,27 @@ const Home = () => {
         router.push(`/edit/${id}`); // Navigate to Edit Task page
     };
 
-    const totalTasks = tasks.length;
-    const completedTasks = tasks.filter((task: any) => task.completed).length;
+    const totalTasks = tasks?.length || 0;
+    const completedTasks = tasks?.filter((task: any) => task.completed).length || 0;
 
     return (
-        <div>
+        <div className="home-tasks">
+
+            <Header />
+
+            <button className="create-task" onClick={handleCreateTask}>Create Task<span> </span><AddCircleOutlineIcon className="symbol" /></button>
+
             <div className="task-summary">
-                <p>Tasks: {totalTasks}</p>
-                <p>Completed: {completedTasks} of {totalTasks}</p>
+                <p className="p-tasks">Tasks:
+                    <span className="count-bkg"> {totalTasks} </span>
+                </p>
+                <p className="p-completed">Completed:
+                    <span className="count-bkg"> {completedTasks} of {totalTasks} </span>
+                </p>
             </div>
 
-            <button onClick={handleCreateTask}>Create Task</button>
-
-            <div>
-                {tasks.map((task: any) => (
+            <div className="tasks">
+                {tasks?.map((task: any) => (
                     <TaskCard
                         key={task.id}
                         task={task}

@@ -1,0 +1,95 @@
+.create-task-home {
+    background-color: #1b1b1b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 25%;
+    height: 100vh;
+    width: 100%;
+}
+
+.arrow {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    margin-bottom: 30px;
+    padding-top: 150px;
+}
+
+.back {
+    color: white;
+}
+
+.back:hover {
+    cursor: pointer;
+}
+
+.task-items {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #269feb;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+input {
+    background-color: #303030;
+    border-radius: 7px;
+    margin-top: 7px;
+    padding: 10px;
+    padding-left: 15px;
+    color: #8a8a8a;
+    width: 100%;
+    height: 45px;
+    font-size: 15px;
+}
+
+input:focus {
+    color: white;
+}
+
+.color-picker {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.color-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin-right: 7;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.color-circle:hover {
+    transform: scale(1.1);
+}
+
+.color-circle.selected {
+    border-color: white;
+}
+
+.add-task {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #1290de;
+    width: 100%;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.add-task:hover {
+    color: #c7c7c7;
+    background-color: #033b5e;
+}

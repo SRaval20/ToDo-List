@@ -1,0 +1,18 @@
+.todo {
+    font-size: 45px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.todo-left {
+    position: absolute;
+    right: 50.25%;
+    color: #269feb;
+}
+
+.todo-right {
+    position: absolute;
+    left: 50.25%;
+    color: #6257f4;
+}

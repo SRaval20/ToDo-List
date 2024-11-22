@@ -5,6 +5,7 @@ import Check from '@mui/icons-material/Check';
 import React, { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { fetchTask, updateTask } from '@/utils/api';
+import Header from '../../../components/Header';
 
 const EditTask = () => {
     const params = useParams();
@@ -64,6 +65,8 @@ const EditTask = () => {
 
         <div className="create-task-home">
             <form onSubmit={handleSubmit}>
+
+                <Header />
 
                 <div className="arrow">
                     <ArrowBackIcon type="button" className="back" onClick={handleCancel} />

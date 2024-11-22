@@ -4,6 +4,7 @@
 
 import "../styles/app.css";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import React, { useEffect, useState } from 'react';
 import { fetchTasks, updateTask, deleteTask } from '../utils/api';
 import Header from '../components/Header';
@@ -83,15 +84,24 @@ const Home = () => {
             </div>
 
             <div className="tasks">
-                {tasks?.map((task: any) => (
-                    <TaskCard
-                        key={task.id}
-                        task={task}
-                        onToggle={handleToggle}
-                        onDelete={handleDelete}
-                        onEdit={handleEditTask}
-                    />
-                ))}
+                {tasks && tasks.length > 0 ? (
+                    tasks.map((task: any) => (
+                        <TaskCard
+                            key={task.id}
+                            task={task}
+                            onToggle={handleToggle}
+                            onDelete={handleDelete}
+                            onEdit={handleEditTask}
+                        />
+                    ))
+                ) : (
+                    <div className="no-tasks">
+                        <hr className="no-tasks-line" />
+                        <AssignmentOutlinedIcon className="no-tasks-icon"/>
+                        <div className="no-tasks-text"><b>You don't have any tasks registered yet.</b></div>
+                        <div className="no-tasks-text">Create tasks and organize your to-do items.</div>
+                    </div>
+                )}
             </div>
         </div>
     );

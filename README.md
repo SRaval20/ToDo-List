@@ -129,3 +129,13 @@ You can watch Demo video [here](utilities/DemoVideo/TodoAppDemo.mov).
 You can view screenshots below
 
 ![Home Page](utilities/Screenshots/01.HomePage.png)
+![CreateTask](utilities/Screenshots/02.CreateTask.png)
+![YouCanEditCreatedTask](utilities/Screenshots/03.YouCanEditCreatedTask.png)
+![EditTask](utilities/Screenshots/04.EditTask.png)
+![SuccessfullyEditedAndCompletedTaskOnHomePage](utilities/Screenshots/05.SuccessfullyEditedAndCompletedTaskOnHomePage.png)
+![CreatedAnotherTask](utilities/Screenshots/06.CreatedAnotherTask.png)
+![DeleteTasksRequiredNoMore](utilities/Screenshots/07.DeleteTasksRequiredNoMore.png)
+![ComfirmForDeleting](utilities/Screenshots/08.ComfirmForDeleting.png)
+![TaskDeleted](utilities/Screenshots/09.TaskDeleted.png)
+![CompletedTaskOnHomePage](utilities/Screenshots/10.CompletedTaskOnHomePage.png)
+![ToggleIfCompletedTaskOnHomePageByMistake](utilities/Screenshots/11.ToggleIfCompletedTaskOnHomePageByMistake.png)

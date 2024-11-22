@@ -122,9 +122,7 @@ SELECT * FROM Task;
 
 ### Demo Video Link
 
-You can watch Demo video [here](utilities/DemoVideo/TodoAppDemo.mov).
-
-Youtube Link [here](https://www.youtube.com/watch?v=-RIoXHbdMFM)
+You can watch Demo video on Youtube [here](https://www.youtube.com/watch?v=-RIoXHbdMFM)
 
 ### Screenshots
 

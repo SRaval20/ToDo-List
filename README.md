@@ -116,3 +116,16 @@ Check Tasks being added into the table:
 ```bash
 SELECT * FROM Task;
 ```
+
+
+## Demo And Screenshots
+
+### Demo Video Link
+
+You can watch Demo video [here](utilities/DemoVideo/TodoAppDemo.mov).
+
+### Screenshots
+
+You can view screenshots below
+
+![Home Page](utilities/Screenshots/01.HomePage.png)

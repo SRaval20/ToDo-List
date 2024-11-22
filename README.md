@@ -22,54 +22,97 @@ cd ToDo-List
 ```
 
 
-2. Backend Setup
-Navigate to the backend directory:
+### 2. Backend Setup
+Be in Todo-List folder and navigate to the backend directory:
+
+```bash
 cd backend
-Install dependencies:
+```
+
+Install Express Prism:
+
+```bash
+npm install express prisma @prisma/client mysql2 cors body-parser
+```
+
+Start Prisma:
+
+```bash
+npx prisma init
+```
+
+Run Prisma Migrations:
+
+```bash
+npx prisma migrate dev --name init
+```
+
+
+### 3. Frontend Setup
+Be in Todo-List folder and navigate to the frontend directory:
+
+```bash
+cd frontend
+```
+
+Install dependencies
+
+```bash
 npm install
-Configure the .env file:
-Create a .env file in the backend directory:
-DATABASE_URL="mysql://<username>:<password>@localhost:3306/<database-name>"
-Replace <username>, <password>, and <database-name> with your MySQL credentials and the database name.
-Initialize the database with Prisma:
-npx prisma migrate dev
-Start the backend server:
-npm start
-3. Frontend Setup
-Navigate to the frontend directory:
-cd ../frontend/my-app
-Install dependencies:
-npm install
-Start the development server:
+```
+
+### 4. Configure MySQL
+Configure your MySQL credentials in .env file in backend folder:
+
+```bash
+DATABASE_URL="mysql://<userName>:<password>@<host>:<port>/<database>"
+```
+
+
+
+## Start servers
+
+### 1. In one terminal go to backend folder and run below command
+```bash
+node src/index.js
+```
+
+### 2. In another terminal go to frontend/my-app folder and run below command
+```bash
 npm run dev
-4. MySQL Setup
-Create a new database in MySQL:
-CREATE DATABASE task_management;
-Update the backend .env file with the database name task_management.
-Running the Application
+```
 
-Backend: Ensure the backend server is running on http://localhost:3001.
-Frontend: Open the frontend at http://localhost:3000.
-Database: The application should now connect to the MySQL database.
-Development Commands
+### 3. In different terminal go to backend folder and Start MySQL Server
+```bash
+mysql.server start
+```
 
-Backend
-Run server in development mode:
-npm run dev
-Apply new Prisma migrations:
-npx prisma migrate dev
-Frontend
-Run frontend tests:
-npm test
-Build production-ready frontend:
-npm run build
-Project Structure
 
-frontend/my-app: Next.js frontend application.
-backend: Express.js backend with Prisma ORM.
-prisma: Database schema and migrations.
-mysql: MySQL database integration.
-Notes
+## Install dependencies if missing
 
-Ensure both frontend and backend are running simultaneously for the application to work.
-Check the .env file for any additional configuration.
+Install dependencies if nay missing in your device
+
+```bash
+npm install <dependency-name>
+```
+
+
+## Explore Database if you want
+
+Be in Todo-List folder and navigate to backend folder:
+
+```bash
+mysql -u root -p;
+```
+
+Select Database:
+
+```bash
+SELECT DATABASE todo_app;
+```
+
+Check Tasks being added into the table:
+
+```bash
+SELECT * FROM Task;
+```
